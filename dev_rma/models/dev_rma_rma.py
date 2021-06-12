@@ -502,7 +502,7 @@ class dev_rma_rma(models.Model):
                     if obj_emp_manager_user.email:
                         email_to_list.append(obj_emp_manager_user.email)
 
-                print("email list", email_to_list)
+                print("email list3", email_to_list)
                 if email_to_list:
                     ctx['email_to'] = ','.join([email for email in email_to_list if email])
                     ctx['email_from'] = self.env.user.email
@@ -538,7 +538,7 @@ class dev_rma_rma(models.Model):
                 if obj_emp_manager_user.email:
                     email_to_list.append(obj_emp_manager_user.email)
 
-            print("email list", email_to_list)
+            print("email list4", email_to_list)
             if email_to_list:
                 ctx['email_to'] = ','.join([email for email in email_to_list if email])
                 ctx['email_from'] = self.env.user.email
@@ -575,7 +575,7 @@ class dev_rma_rma(models.Model):
             #     if obj_emp_manager_user.email:
             #         email_to_list.append(obj_emp_manager_user.email)
 
-            print("email list", email_to_list)
+            print("email list2", email_to_list)
             if email_to_list:
                 ctx['email_to'] = ','.join([email for email in email_to_list if email])
                 ctx['email_from'] = self.env.user.email
@@ -588,6 +588,7 @@ class dev_rma_rma(models.Model):
                 obj_id = template.with_context(ctx).sudo().send_mail(self.id, force_send=True,
                                                                      raise_exception=False)
                 print("obj_id", obj_id)
+            print("hi222")
             self.write({'state': 'waiting3'})
 
     def action_approve_by_Accounting(self):
@@ -611,7 +612,7 @@ class dev_rma_rma(models.Model):
                 if obj_emp_manager_user.email:
                     email_to_list.append(obj_emp_manager_user.email)
 
-            print("email list", email_to_list)
+            print("email list2", email_to_list)
             if email_to_list:
                 ctx['email_to'] = ','.join([email for email in email_to_list if email])
                 ctx['email_from'] = self.env.user.email
@@ -624,6 +625,8 @@ class dev_rma_rma(models.Model):
                 obj_id = template.with_context(ctx).sudo().send_mail(self.id, force_send=True,
                                                                      raise_exception=False)
                 print("obj_id", obj_id)
+            print("hi")
+            print("self",self.name, self.sale_id.name)
             self.action_confirm()
 
     def action_confirm(self):

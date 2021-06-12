@@ -3,16 +3,16 @@
     <data noupdate="1">
         <record id="validate_rma_line_email_template" model="mail.template">
             <field name="name">Return Sales Order Request</field>
-            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="model_id" ref="dev_rma.model_dev_rma_rma"/>
             <field name="email_from">${ctx['email_from']}</field>
             <field name="email_to">${ctx['email_to']}</field>
-            <field name="subject">${object.name} Return Approval Request</field>
+            <field name="subject">${object.sale_id.name} Return Approval Request</field>
             <field name="lang">${ctx['lang']}</field>
             <field name="auto_delete" eval="False"/>
             <field name="body_html"><![CDATA[
                 Hello,
 
-                <p>New Return Sales order <b>'${object.sale_id.name}'</b> Created   by ${object.user_id.name} need your approval on it.</p>
+                <p>New Return Return order <b>'${object.name}'</b> Created   by ${object.user_id.name} need your approval on it.</p>
 
                 <p> To Approve, Cancel Order, click on the following link:</p>
                 <div style="margin-top: 16px;">
